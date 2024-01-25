@@ -18,7 +18,6 @@ import { QueryData } from '../../../utils/global/globalInterface';
 import { AuthGuard } from '../../middlewares/auth/auth.guard';
 
 @Controller('users')
-@UseGuards(AuthGuard)
 export class UsersController extends BasesController {
   constructor(private readonly usersService: UsersService) {
     super();
@@ -29,7 +28,7 @@ export class UsersController extends BasesController {
     this.update = this.update.bind(this);
     this.remove = this.remove.bind(this);
   }
-
+  @UseGuards(AuthGuard)
   @Post()
   async create(@Body() createUserDto: CreateUserDto) {
     try {

@@ -24,7 +24,7 @@ export class LoginService {
       .scope('defaultOptions')
       .findOne<users>({
         where: { email: data.email },
-        attributes: ['password', 'id', 'company_id'],
+        attributes: ['password', 'id'],
       });
 
     if (!user) throw new Error('INVALID_CREDENTIALS');
