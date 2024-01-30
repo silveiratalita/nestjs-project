@@ -7,3 +7,16 @@ services:
       POSTGRES_PASSWORD: "1234"
     ports:
       - "5432:5432"
+  
+  mongodb:
+      image: mongo:latest
+      container_name: mongodb
+      restart: always
+      environment:
+         MONGO_INITDB_ROOT_USERNAME: mongo
+         MONGO_INITDB_ROOT_PASSWORD: docker
+         MONGO_INITDB_DATABASE: admin
+      ports:
+        - 27017:27017
+      volumes:
+        - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro

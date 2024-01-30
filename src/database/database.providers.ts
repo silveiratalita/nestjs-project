@@ -2,8 +2,9 @@ import { SequelizeModule } from '@nestjs/sequelize';
 import { Sequelize } from 'sequelize-typescript';
 import { users } from '../app/modules/users/entities/user.entity';
 import { api_tokens } from '../app/modules/login/entities/login.entity';
+import { MongooseModule } from '@nestjs/mongoose';
 
-const models = [users, api_tokens]
+const models = [users, api_tokens];
 
 export const databaseProviders = [
   {
@@ -16,7 +17,7 @@ export const databaseProviders = [
         username: 'postgres',
         password: '1234',
         database: 'postgres',
-        logging: false
+        logging: false,
       });
 
       sequelize.addModels(models);
@@ -38,3 +39,7 @@ export const sequelizeModule = SequelizeModule.forRoot({
   logging: false,
   models,
 });
+
+export const mongooseModule = MongooseModule.forRoot(
+  'mongodb://mongo:docker@localhost:27017/admin',
+);
