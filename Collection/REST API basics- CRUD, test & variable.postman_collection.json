@@ -36,6 +36,34 @@
 			"response": []
 		},
 		{
+			"name": "CRIA UM PRODUTO",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"name\": \"Talita\",\n\"email\": \"talita@talita.com\",\n\"password\": \"1234\",\n\"passwordConfirmation\":\"1234\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "LOGIN DO USUARIO",
 			"request": {
 				"method": "POST",
